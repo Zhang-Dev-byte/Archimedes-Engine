@@ -10,6 +10,13 @@ workspace "Archimedes"
 
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
+IncludeDir = {}
+IncludeDir["GLFW"] = "Archimedes/vendor/GLFW/include"
+IncludeDir["Glad"] = "Archimedes/vendor/Glad/include"
+
+include "Archimedes/vendor/GLFW"
+include "Archimedes/vendor/Glad"
+
 project "Archimedes"
 	location "Archimedes"
 	kind "SharedLib"
@@ -26,7 +33,16 @@ project "Archimedes"
 
 	includedirs
 	{
-		"%{prj.name}/vendor/spdlog/include"
+		"%{prj.name}/vendor/spdlog/include",
+		"%{IncludeDir.GLFW}",
+		"%{IncludeDir.Glad}"
+	}
+
+	links 
+	{ 
+		"GLFW",
+		"Glad",
+		"opengl32.lib"
 	}
 
 	filter "system:windows"
@@ -74,12 +90,17 @@ project "Sandbox"
 	includedirs
 	{
 		"Archimedes/vendor/spdlog/include",
-		"Archimedes/src"
+		"Archimedes/src",
+		"%{IncludeDir.GLFW}",
+		"%{IncludeDir.Glad}"
 	}
 
 	links
 	{
-		"Archimedes"
+		"Archimedes",
+		"GLFW",
+		"Glad",
+		"opengl32.lib"
 	}
 
 	filter "system:windows"

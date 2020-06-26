@@ -19,6 +19,12 @@
     <ClInclude Include="src\Archimedes\Log.h">
       <Filter>Archimedes</Filter>
     </ClInclude>
+    <ClInclude Include="src\Archimedes\Window.h">
+      <Filter>Archimedes</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Archimedes\Shader.h" />
+    <ClInclude Include="src\Archimedes\stb_Image.h" />
+    <ClInclude Include="src\Archimedes\Texture.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Archimedes\Application.cpp">
@@ -27,5 +33,8 @@
     <ClCompile Include="src\Archimedes\Log.cpp">
       <Filter>Archimedes</Filter>
     </ClCompile>
+    <ClCompile Include="src\Archimedes\Window.cpp" />
+    <ClCompile Include="src\Archimedes\Shader.cpp" />
+    <ClCompile Include="src\Archimedes\Texture.cpp" />
   </ItemGroup>
 </Project>

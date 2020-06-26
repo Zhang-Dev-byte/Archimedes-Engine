@@ -19,4 +19,8 @@
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="res\vs.glsl" />
+    <None Include="res\fs.glsl" />
+  </ItemGroup>
 </Project>

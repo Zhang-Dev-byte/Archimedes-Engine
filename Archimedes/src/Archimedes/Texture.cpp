@@ -1,0 +1,37 @@
+#include "Texture.h"
+
+namespace AC {
+    Texture::Texture(const char* path)
+    {
+        stbi_set_flip_vertically_on_load(true);
+
+        unsigned char* data = stbi_load(path, &width, &height, &comp, 4);
+
+        glGenTextures(1, &id);
+
+        glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+        glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+
+        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, data);
+        stbi_image_free(data);
+    }
+
+    Texture::Texture()
+    {
+    }
+
+    void Texture::Bind()
+    {
+        glBindTexture(GL_TEXTURE_2D, id);
+    }
+
+    void Texture::UnBind()
+    {
+        glBindTexture(GL_TEXTURE_2D, 0);
+    }
+
+    int Texture::getID()
+    {
+        return id;
+    }
+}
