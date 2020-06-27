@@ -75,6 +75,11 @@ namespace AC {
     {
         glUniform1f(glGetUniformLocation(ID, name.c_str()), value);
     }
+	void Shader::setMat4(const std::string& name, mat4 value) const
+	{
+        unsigned int transformLoc = glGetUniformLocation(ID, name.c_str());
+        glUniformMatrix4fv(transformLoc, 1, GL_FALSE, glm::value_ptr(value));
+	}
 	Shader::Shader()
 	{
 	}

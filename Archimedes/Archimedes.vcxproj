@@ -79,7 +79,7 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>AC_PLATFORM_WINDOWS;AC_BUILD_DLL;AC_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>vendor\spdlog\include;vendor\GLFW\include;vendor\Glad\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>vendor\spdlog\include;vendor\GLFW\include;vendor\Glad\include;vendor\glm;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
@@ -100,7 +100,7 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>AC_PLATFORM_WINDOWS;AC_BUILD_DLL;AC_RELEASE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>vendor\spdlog\include;vendor\GLFW\include;vendor\Glad\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>vendor\spdlog\include;vendor\GLFW\include;vendor\Glad\include;vendor\glm;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -125,7 +125,7 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>AC_PLATFORM_WINDOWS;AC_BUILD_DLL;AC_DIST;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>vendor\spdlog\include;vendor\GLFW\include;vendor\Glad\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>vendor\spdlog\include;vendor\GLFW\include;vendor\Glad\include;vendor\glm;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -148,18 +148,23 @@
   <ItemGroup>
     <ClInclude Include="src\Archimedes.h" />
     <ClInclude Include="src\Archimedes\Application.h" />
+    <ClInclude Include="src\Archimedes\Camera.h" />
+    <ClInclude Include="src\Archimedes\Sprite.h" />
     <ClInclude Include="src\Archimedes\Core.h" />
     <ClInclude Include="src\Archimedes\Entrypoint.h" />
     <ClInclude Include="src\Archimedes\Log.h" />
     <ClInclude Include="src\Archimedes\Shader.h" />
-    <ClInclude Include="src\Archimedes\stb_Image.h" />
     <ClInclude Include="src\Archimedes\Texture.h" />
     <ClInclude Include="src\Archimedes\Window.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Archimedes\Application.cpp" />
+    <ClCompile Include="src\Archimedes\Camera.cpp" />
     <ClCompile Include="src\Archimedes\Log.cpp" />
     <ClCompile Include="src\Archimedes\Shader.cpp" />
+    <ClCompile Include="src\Archimedes\Sprite.cpp" />
+    <ClCompile Include="src\Archimedes\stb_image.cpp" />
+    <ClCompile Include="src\Archimedes\stb_image.h" />
     <ClCompile Include="src\Archimedes\Texture.cpp" />
     <ClCompile Include="src\Archimedes\Window.cpp" />
   </ItemGroup>

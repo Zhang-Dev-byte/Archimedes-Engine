@@ -11,14 +11,14 @@ int main(){
 	AC::Log::Init();
 	AC_CORE_INFO("Initialized Log!");
 
-
-	auto app = AC::CreateApplication();
-
 	AC::Window win = AC::Window();
 
 	if (!gladLoadGLLoader(win.GetProc())) {
 		AC_CORE_ERROR("Failed to initalize Glad!");
 	}
+
+
+	auto app = AC::CreateApplication();
 
 	glEnable(GL_TEXTURE_2D);
 

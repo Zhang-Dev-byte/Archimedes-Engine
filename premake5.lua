@@ -13,6 +13,7 @@ outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 IncludeDir = {}
 IncludeDir["GLFW"] = "Archimedes/vendor/GLFW/include"
 IncludeDir["Glad"] = "Archimedes/vendor/Glad/include"
+IncludeDir["glm"] = "Archimedes/vendor/glm"
 
 include "Archimedes/vendor/GLFW"
 include "Archimedes/vendor/Glad"
@@ -35,7 +36,8 @@ project "Archimedes"
 	{
 		"%{prj.name}/vendor/spdlog/include",
 		"%{IncludeDir.GLFW}",
-		"%{IncludeDir.Glad}"
+		"%{IncludeDir.Glad}",
+		"%{IncludeDir.glm}"
 	}
 
 	links 
@@ -92,7 +94,8 @@ project "Sandbox"
 		"Archimedes/vendor/spdlog/include",
 		"Archimedes/src",
 		"%{IncludeDir.GLFW}",
-		"%{IncludeDir.Glad}"
+		"%{IncludeDir.Glad}",
+		"%{IncludeDir.glm}"
 	}
 
 	links
