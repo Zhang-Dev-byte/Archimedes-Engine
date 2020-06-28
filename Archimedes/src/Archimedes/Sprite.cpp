@@ -1,8 +1,9 @@
 #include "Sprite.h"
 
 namespace AC {
-    Sprite::Sprite(Texture& texture)
+    Sprite::Sprite(Texture& texture, const char* name)
     {
+        this->name = name;
         shader = AC::Shader("res/vs.glsl", "res/fs.glsl");
         tex = texture;
         position = vec2(0, 0);
@@ -83,6 +84,26 @@ namespace AC {
     {
         rotation = value;
         UpdateModel();
+    }
+
+    vec2& Sprite::GetScale()
+    {
+        return scale;
+    }
+
+    vec2& Sprite::GetPosition()
+	{
+        return position;
+	}
+
+    float Sprite::GetRotation()
+    {
+        return rotation;
+    }
+
+    const char* Sprite::GetName()
+    {
+        return name;
     }
 
     void Sprite::Scale(vec2& value)

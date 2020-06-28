@@ -69,7 +69,7 @@ namespace AC {
         // We cannot preserve the docking relationship between an active window and an inactive docking, otherwise
         // any change of dockspace/settings would lead to windows being stuck in limbo and never being visible.
         ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, ImVec2(0.0f, 0.0f));
-        ImGui::Begin("DockSpace Demo", &p_open, window_flags);
+        ImGui::Begin("DockSpace", &p_open, window_flags);
         ImGui::PopStyleVar();
 
         if (opt_fullscreen)
@@ -83,30 +83,14 @@ namespace AC {
             ImGui::DockSpace(dockspace_id, ImVec2(0.0f, 0.0f), dockspace_flags);
         }
 
-        if (ImGui::BeginMenuBar())
-        {
-            if (ImGui::BeginMenu("Docking"))
-            {
-                // Disabling fullscreen would allow the window to be moved to the front of other windows,
-                // which we can't undo at the moment without finer window depth/z control.
-                //ImGui::MenuItem("Fullscreen", NULL, &opt_fullscreen_persistant);
-
-                if (ImGui::MenuItem("Flag: NoSplit", "", (dockspace_flags & ImGuiDockNodeFlags_NoSplit) != 0))                 dockspace_flags ^= ImGuiDockNodeFlags_NoSplit;
-                if (ImGui::MenuItem("Flag: NoResize", "", (dockspace_flags & ImGuiDockNodeFlags_NoResize) != 0))                dockspace_flags ^= ImGuiDockNodeFlags_NoResize;
-                if (ImGui::MenuItem("Flag: NoDockingInCentralNode", "", (dockspace_flags & ImGuiDockNodeFlags_NoDockingInCentralNode) != 0))  dockspace_flags ^= ImGuiDockNodeFlags_NoDockingInCentralNode;
-                if (ImGui::MenuItem("Flag: PassthruCentralNode", "", (dockspace_flags & ImGuiDockNodeFlags_PassthruCentralNode) != 0))     dockspace_flags ^= ImGuiDockNodeFlags_PassthruCentralNode;
-                if (ImGui::MenuItem("Flag: AutoHideTabBar", "", (dockspace_flags & ImGuiDockNodeFlags_AutoHideTabBar) != 0))          dockspace_flags ^= ImGuiDockNodeFlags_AutoHideTabBar;
-                ImGui::Separator();
-                if (ImGui::MenuItem("Close DockSpace", NULL, false))
-                    p_open = false;
-                ImGui::EndMenu();
-            }
-            ImGui::EndMenuBar();
-        }
         ImGui::Begin("Viewport");
-        ImGui::Image((void*)(intptr_t)2, ImVec2(960, 540));
+        ImGui::Image((void*)(intptr_t)2, ImVec2(960/1.3f, 540/1.3f));
+        ImGui::End();
+        ImGui::Begin("Scene");
         ImGui::End();
         ImGui::Begin("Properties");
+        ImGui::End();
+        ImGui::Begin("Control");
         ImGui::End();
         ImGui::End();
 

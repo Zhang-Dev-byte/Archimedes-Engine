@@ -1,30 +1,31 @@
-#include <Archimedes.h>
-#include "Archimedes/nlohmann/json.hpp"
+#pragma once
+#include "Camera.h"
+#include "Sprite.h"
+#include <vector>
+using namespace std;
 
-using namespace nlohmann;
+static AC::Camera ecam = AC::Camera(-1.6f, 1.6f, -0.9f, 0.9f);
+static AC::Camera gcam = AC::Camera(-1.6f, 1.6f, -0.9f, 0.9f);
+static unsigned int quadVAO, quadVBO, FBO, TCB, RBO;
+static vector<AC::Sprite*> sprites;
 
-class Sandbox2D : public AC::Application{
-public:
-    AC::Sprite s = AC::Sprite(AC::Texture("res/container.jpg"), "Hello");
-    //AC::Shader sh = AC::Shader("res/svs.glsl", "res/sfs.glsl");
+static float quadVertices[24] = { // vertex attributes for a quad that fills the entire screen in Normalized Device Coordinates.
+    // positions   // texCoords
+    -1.0f,  1.0f,  0.0f, 1.0f,
+    -1.0f, -1.0f,  0.0f, 0.0f,
+     1.0f, -1.0f,  1.0f, 0.0f,
 
-	virtual void Run() override{
-        AC::AddSprite(&s);
+    -1.0f,  1.0f,  0.0f, 1.0f,
+     1.0f, -1.0f,  1.0f, 0.0f,
+     1.0f,  1.0f,  1.0f, 1.0f
+};
 
-        json j;
-        j["X"] = s.GetPosition().x;
-        j["Y"] = s.GetPosition().y;
-
-        j["SX"] = s.GetScale().x;
-        j["SY"] = s.GetScale().y;
-
-        j["R"] = s.GetRotation();
-
-        j["N"] = s.GetName();
-
-        AC_CORE_INFO(j.dump());
-        AC::CreateFrameBuffer();
-        /*glGenFramebuffers(1, &FBO);
+namespace AC {
+	extern void AddSprite(Sprite* sprite) {
+		sprites.push_back(sprite);
+	}
+	extern void CreateFrameBuffer() {
+        glGenFramebuffers(1, &FBO);
         glBindFramebuffer(GL_FRAMEBUFFER, FBO);
 
         glGenTextures(1, &TCB);
@@ -57,29 +58,14 @@ public:
         glEnableVertexAttribArray(0);
         glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, 4 * sizeof(float), (void*)0);
         glEnableVertexAttribArray(1);
-        glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 4 * sizeof(float), (void*)(2 * sizeof(float)));*/
-
-        //glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
-
+        glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 4 * sizeof(float), (void*)(2 * sizeof(float)));
 	}
-    virtual void Render() override {
-        //glBindTexture(GL_TEXTURE_2D, TCB);
-        //glBindFramebuffer(GL_FRAMEBUFFER, FBO);
-        //glClear(GL_COLOR_BUFFER_BIT);
-        //s.Render(ecam);
-        AC::DrawFramebuffer();
-        /*glBindFramebuffer(GL_FRAMEBUFFER, 0);
+    extern void DrawFramebuffer() {
+        AC::Shader sh = AC::Shader("res/svs.glsl", "res/sfs.glsl");
+        glBindFramebuffer(GL_FRAMEBUFFER, 0);
         sh.Use();
         sh.setInt("screenTexture", 0);
         glBindVertexArray(quadVAO);
-        glDrawArrays(GL_TRIANGLES, 0, 6);*/
+        glDrawArrays(GL_TRIANGLES, 0, 6);
     }
-    Sandbox2D() {
-
-    }
-};
-
-
-AC::Application* AC::CreateApplication() {
-    return new Sandbox2D();
 }

@@ -150,6 +150,7 @@
     <ClInclude Include="src\Archimedes\Application.h" />
     <ClInclude Include="src\Archimedes\Camera.h" />
     <ClInclude Include="src\Archimedes\Core.h" />
+    <ClInclude Include="src\Archimedes\Editor.h" />
     <ClInclude Include="src\Archimedes\Entrypoint.h" />
     <ClInclude Include="src\Archimedes\Log.h" />
     <ClInclude Include="src\Archimedes\Shader.h" />

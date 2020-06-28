@@ -37,6 +37,7 @@
     <ClInclude Include="src\Archimedes\stb_image.h">
       <Filter>Archimedes</Filter>
     </ClInclude>
+    <ClInclude Include="src\Archimedes\Editor.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Archimedes\Application.cpp">
