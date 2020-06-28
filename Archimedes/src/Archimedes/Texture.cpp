@@ -31,8 +31,16 @@ namespace AC {
         glBindTexture(GL_TEXTURE_2D, 0);
     }
 
-    int Texture::getID()
+    unsigned int Texture::getID()
     {
         return id;
+    }
+    int Texture::getWidth()
+    {
+        return width;
+    }
+    int Texture::getHeight()
+    {
+        return height;
     }
 }

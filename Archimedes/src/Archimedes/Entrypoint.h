@@ -2,9 +2,12 @@
 #include "Application.h"
 #include "Log.h"
 #include "Window.h"
+#include <imgui.h>
+#include <imgui_impl_opengl3.h>
+#include <imgui_impl_glfw.h>
 
 namespace AC {
-	extern AC::Application* CreateApplication();
+	extern Application* CreateApplication();
 }
 
 int main(){
@@ -17,7 +20,6 @@ int main(){
 		AC_CORE_ERROR("Failed to initalize Glad!");
 	}
 
-
 	auto app = AC::CreateApplication();
 
 	glEnable(GL_TEXTURE_2D);
@@ -27,11 +29,13 @@ int main(){
 
 
 	app->Run();
-
+	bool show = true;
 	while (win.isRunning()) {
 		glClearColor(1, 0, 0, 1);
 		win.Clear();
+
 		app->Render();
+
 		win.SwapBuffers();
 	}
 }

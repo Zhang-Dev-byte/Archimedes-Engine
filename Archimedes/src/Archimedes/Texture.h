@@ -15,6 +15,8 @@ namespace AC {
 		Texture();
 		void Bind();
 		void UnBind();
-		int getID();
+		unsigned int getID();
+		int getWidth();
+		int getHeight();
 	};
 }

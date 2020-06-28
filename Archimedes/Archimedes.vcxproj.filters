@@ -10,6 +10,9 @@
     <ClInclude Include="src\Archimedes\Application.h">
       <Filter>Archimedes</Filter>
     </ClInclude>
+    <ClInclude Include="src\Archimedes\Camera.h">
+      <Filter>Archimedes</Filter>
+    </ClInclude>
     <ClInclude Include="src\Archimedes\Core.h">
       <Filter>Archimedes</Filter>
     </ClInclude>
@@ -22,17 +25,24 @@
     <ClInclude Include="src\Archimedes\Shader.h">
       <Filter>Archimedes</Filter>
     </ClInclude>
+    <ClInclude Include="src\Archimedes\Sprite.h">
+      <Filter>Archimedes</Filter>
+    </ClInclude>
     <ClInclude Include="src\Archimedes\Texture.h">
       <Filter>Archimedes</Filter>
     </ClInclude>
     <ClInclude Include="src\Archimedes\Window.h">
       <Filter>Archimedes</Filter>
     </ClInclude>
-    <ClInclude Include="src\Archimedes\Sprite.h" />
-    <ClInclude Include="src\Archimedes\Camera.h" />
+    <ClInclude Include="src\Archimedes\stb_image.h">
+      <Filter>Archimedes</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Archimedes\Application.cpp">
+      <Filter>Archimedes</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Archimedes\Camera.cpp">
       <Filter>Archimedes</Filter>
     </ClCompile>
     <ClCompile Include="src\Archimedes\Log.cpp">
@@ -41,15 +51,14 @@
     <ClCompile Include="src\Archimedes\Shader.cpp">
       <Filter>Archimedes</Filter>
     </ClCompile>
+    <ClCompile Include="src\Archimedes\Sprite.cpp">
+      <Filter>Archimedes</Filter>
+    </ClCompile>
     <ClCompile Include="src\Archimedes\Texture.cpp">
       <Filter>Archimedes</Filter>
     </ClCompile>
     <ClCompile Include="src\Archimedes\Window.cpp">
       <Filter>Archimedes</Filter>
     </ClCompile>
-    <ClCompile Include="src\Archimedes\Sprite.cpp" />
-    <ClCompile Include="src\Archimedes\stb_image.h" />
-    <ClCompile Include="src\Archimedes\stb_image.cpp" />
-    <ClCompile Include="src\Archimedes\Camera.cpp" />
   </ItemGroup>
 </Project>

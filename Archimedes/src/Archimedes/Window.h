@@ -3,6 +3,7 @@
 #include "Log.h"
 #include <glad\glad.h>
 #include <GLFW\glfw3.h>
+#include "Texture.h"
 
 namespace AC {
 	class AC_API Window {
@@ -11,6 +12,7 @@ namespace AC {
 		void SwapBuffers();
 		void Clear(int mask = GL_COLOR_BUFFER_BIT);
 		bool isRunning();
+		GLFWwindow** GetWindow();
 		GLADloadproc& GetProc();
 	private:
 		GLFWwindow* window;

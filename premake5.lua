@@ -14,9 +14,11 @@ IncludeDir = {}
 IncludeDir["GLFW"] = "Archimedes/vendor/GLFW/include"
 IncludeDir["Glad"] = "Archimedes/vendor/Glad/include"
 IncludeDir["glm"] = "Archimedes/vendor/glm"
+IncludeDir["imgui"] = "Archimedes/vendor/imgui"
 
 include "Archimedes/vendor/GLFW"
 include "Archimedes/vendor/Glad"
+include "Archimedes/vendor/imgui"
 
 project "Archimedes"
 	location "Archimedes"
@@ -37,14 +39,16 @@ project "Archimedes"
 		"%{prj.name}/vendor/spdlog/include",
 		"%{IncludeDir.GLFW}",
 		"%{IncludeDir.Glad}",
-		"%{IncludeDir.glm}"
+		"%{IncludeDir.glm}",
+		"%{IncludeDir.imgui}"
 	}
 
 	links 
 	{ 
 		"GLFW",
 		"Glad",
-		"opengl32.lib"
+		"opengl32.lib",
+		"ImGui"
 	}
 
 	filter "system:windows"
@@ -95,7 +99,8 @@ project "Sandbox"
 		"Archimedes/src",
 		"%{IncludeDir.GLFW}",
 		"%{IncludeDir.Glad}",
-		"%{IncludeDir.glm}"
+		"%{IncludeDir.glm}",
+		"%{IncludeDir.imgui}"
 	}
 
 	links
@@ -103,7 +108,8 @@ project "Sandbox"
 		"Archimedes",
 		"GLFW",
 		"Glad",
-		"opengl32.lib"
+		"opengl32.lib",
+		"ImGui"
 	}
 
 	filter "system:windows"

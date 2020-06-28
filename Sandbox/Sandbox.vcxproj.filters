@@ -20,7 +20,7 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="res\vs.glsl" />
-    <None Include="res\fs.glsl" />
+    <None Include="res\svs.glsl" />
+    <None Include="res\sfs.glsl" />
   </ItemGroup>
 </Project>
