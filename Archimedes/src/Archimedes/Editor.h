@@ -2,12 +2,13 @@
 #include "Camera.h"
 #include "Sprite.h"
 #include <vector>
-using namespace std;
+using std::vector;
 
 static AC::Camera ecam = AC::Camera(-1.6f, 1.6f, -0.9f, 0.9f);
 static AC::Camera gcam = AC::Camera(-1.6f, 1.6f, -0.9f, 0.9f);
 static unsigned int quadVAO, quadVBO, FBO, TCB, RBO;
 static vector<AC::Sprite*> sprites;
+static int size;
 
 static float quadVertices[24] = { // vertex attributes for a quad that fills the entire screen in Normalized Device Coordinates.
     // positions   // texCoords
@@ -23,6 +24,7 @@ static float quadVertices[24] = { // vertex attributes for a quad that fills the
 namespace AC {
 	extern void AddSprite(Sprite* sprite) {
 		sprites.push_back(sprite);
+        size += 1;
 	}
 	extern void CreateFrameBuffer() {
         glGenFramebuffers(1, &FBO);

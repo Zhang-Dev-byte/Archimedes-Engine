@@ -29,6 +29,8 @@ int main(){
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
 	app->Run();
+	win.SetTCB(TCB);
+	win.SetSprites(sprites);
 	bool show = true;
 	while (win.isRunning()) {
 		glClearColor(1, 0, 0, 1);

@@ -2,6 +2,7 @@
 #include <imgui.h>
 #include <imgui_impl_glfw.h>
 #include <imgui_impl_opengl3.h>
+#include "Sprite.h"
 
 namespace AC {
     Window::Window(const char* title)
@@ -84,9 +85,15 @@ namespace AC {
         }
 
         ImGui::Begin("Viewport");
-        ImGui::Image((void*)(intptr_t)2, ImVec2(960/1.3f, 540/1.3f));
+        ImGui::Image((void*)(intptr_t)(TCB), ImVec2(960/1.3f, 540/1.3f));
         ImGui::End();
         ImGui::Begin("Scene");
+        for (auto i = sprites.begin(); i != sprites.end(); i++) {
+            Sprite* p = *i;
+            Sprite& r = *p;
+
+            ImGui::Text(r.GetName());
+        }
         ImGui::End();
         ImGui::Begin("Properties");
         ImGui::End();
@@ -114,6 +121,16 @@ namespace AC {
     bool Window::isRunning()
     {
         return !glfwWindowShouldClose(window);
+    }
+
+    void Window::SetTCB(unsigned int value)
+    {
+        TCB = value;
+    }
+
+    void Window::SetSprites(vector<AC::Sprite*>& value)
+    {
+        sprites = value;
     }
 
     GLFWwindow** Window::GetWindow()
