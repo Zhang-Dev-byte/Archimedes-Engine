@@ -17,12 +17,17 @@ namespace AC {
 		bool isRunning();
 		void SetTCB(unsigned int value);
 		void SetSprites(vector<Sprite*>& value);
+		vector<Sprite*>& GetSprites();
 		GLFWwindow** GetWindow();
 		GLADloadproc& GetProc();
 	private:
 		GLFWwindow* window;
 		GLADloadproc proc;
 		unsigned int TCB;
+		Sprite* ssprite = new Sprite();
 		vector<Sprite*> sprites;
+		float spos[2] = {0,0};
+		float sscale[2] = {0,0};
+		float srot = 0;
 	};
 }

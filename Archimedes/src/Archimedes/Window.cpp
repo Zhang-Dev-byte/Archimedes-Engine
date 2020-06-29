@@ -92,14 +92,36 @@ namespace AC {
             Sprite* p = *i;
             Sprite& r = *p;
 
-            ImGui::Text(r.GetName());
+            if (ImGui::Button(r.GetName(), ImVec2(100, 20))) {
+                ssprite = p;
+            }
         }
         ImGui::End();
         ImGui::Begin("Properties");
+        Sprite& r = *ssprite;
+
+        spos[0] = r.GetPosition().x;
+        spos[1] = r.GetPosition().y;
+
+        sscale[0] = r.GetScale().x;
+        sscale[1] = r.GetScale().y;
+
+        srot = r.GetRotation();
+
+        ImGui::Text(r.GetName());
+        ImGui::InputFloat2("Position", spos);
+        ImGui::InputFloat2("Scale", sscale);
+        ImGui::InputFloat("Rotation", &srot);
+
+        r.SetPosition(vec2(spos[0], spos[1]));
+        r.SetScale(vec2(sscale[0], sscale[1]));
+
+        r.SetRotation(srot);
         ImGui::End();
         ImGui::Begin("Control");
         ImGui::End();
         ImGui::End();
+
 
         ImGui::Render();
         ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
@@ -128,9 +150,14 @@ namespace AC {
         TCB = value;
     }
 
-    void Window::SetSprites(vector<AC::Sprite*>& value)
+    void Window::SetSprites(vector<Sprite*>& value)
     {
         sprites = value;
+    }
+
+    vector<Sprite*>& Window::GetSprites()
+    {
+        return sprites;
     }
 
     GLFWwindow** Window::GetWindow()

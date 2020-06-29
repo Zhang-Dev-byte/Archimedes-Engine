@@ -66,8 +66,11 @@ namespace AC {
         AC::Shader sh = AC::Shader("res/svs.glsl", "res/sfs.glsl");
         glBindFramebuffer(GL_FRAMEBUFFER, 0);
         sh.Use();
-        sh.setInt("screenTexture", 0);
+        sh.setInt("screenTexture", TCB);
         glBindVertexArray(quadVAO);
         glDrawArrays(GL_TRIANGLES, 0, 6);
+    }
+    extern void UpdateFramebuffer() {
+        glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, TCB, 0);
     }
 }

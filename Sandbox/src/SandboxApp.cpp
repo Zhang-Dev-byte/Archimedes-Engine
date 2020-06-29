@@ -33,6 +33,9 @@ public:
 
         AC_CORE_INFO(j.dump());
         AC::CreateFrameBuffer();
+
+        sekg.SetPosition(vec2(2.0f, 2.0f));
+        s.SetPosition(vec2(2.0f, 2.0f));
         /*glGenFramebuffers(1, &FBO);
         glBindFramebuffer(GL_FRAMEBUFFER, FBO);
 
@@ -72,6 +75,7 @@ public:
 
 	}
     virtual void Render() override {
+        AC::UpdateFramebuffer();
         //glBindTexture(GL_TEXTURE_2D, TCB);
         //glBindFramebuffer(GL_FRAMEBUFFER, FBO);
         //glClear(GL_COLOR_BUFFER_BIT);

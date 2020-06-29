@@ -54,6 +54,15 @@ namespace AC {
 
         glBindVertexArray(0);
     }
+    Sprite::Sprite()
+    {
+        name = "";
+        position = vec2(0, 0);
+        scale = vec2(1, 1);
+        rotation = 0.0f;
+        model = mat4(1.0f);
+        UpdateModel();
+    }
     void Sprite::Render(Camera& cam)
     {
         shader.Use();
@@ -103,6 +112,7 @@ namespace AC {
 
     const char* Sprite::GetName()
     {
+
         return name;
     }
 

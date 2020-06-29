@@ -13,6 +13,7 @@ namespace AC {
     class AC_API Sprite {
     public:
         Sprite(Texture& texture, const char* name);
+        Sprite();
         void Render(Camera& cam);
         void UpdateModel();
         void SetScale(vec2& value);

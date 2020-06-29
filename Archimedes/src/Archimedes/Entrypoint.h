@@ -30,7 +30,6 @@ int main(){
 
 	app->Run();
 	win.SetTCB(TCB);
-	win.SetSprites(sprites);
 	bool show = true;
 	while (win.isRunning()) {
 		glClearColor(1, 0, 0, 1);
@@ -47,6 +46,10 @@ int main(){
 
 		app->Render();
 
+		win.SetSprites(sprites);
+
 		win.SwapBuffers();
+
+		sprites = win.GetSprites();
 	}
 }
