@@ -131,6 +131,18 @@ namespace AC {
 
     void Window::Clear(int mask)
     {
+        if (glfwGetKey(window, GLFW_KEY_W)) {
+            ecam.Translate(vec2(0.0f, -0.01f));
+        }
+        if (glfwGetKey(window, GLFW_KEY_S)) {
+            ecam.Translate(vec2(0.0f, 0.01f));
+        }
+        if (glfwGetKey(window, GLFW_KEY_A)) {
+            ecam.Translate(vec2(-0.01f, 0));
+        }
+        if (glfwGetKey(window, GLFW_KEY_D)) {
+            ecam.Translate(vec2(0.01f, 0.0f));
+        }
         glClear(mask);
 
 
@@ -153,6 +165,26 @@ namespace AC {
     void Window::SetSprites(vector<Sprite*>& value)
     {
         sprites = value;
+    }
+
+    void Window::Setecam(Camera& value)
+    {
+        ecam = value;
+    }
+
+    void Window::Setgcam(Camera& value)
+    {
+        gcam = value;
+    }
+
+    Camera& Window::Getecam()
+    {
+        return ecam;
+    }
+
+    Camera& Window::Getgcam()
+    {
+        return gcam;
     }
 
     vector<Sprite*>& Window::GetSprites()

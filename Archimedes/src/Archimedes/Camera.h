@@ -9,6 +9,7 @@ namespace AC {
 	class AC_API Camera {
 	public:
 		Camera(float left, float right, float bottom, float top);
+		Camera();
 		void Update();
 		void SetPosition(vec2 value);
 		void SetRotation(float value);

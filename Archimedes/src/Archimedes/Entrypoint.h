@@ -32,6 +32,11 @@ int main(){
 	win.SetTCB(TCB);
 	bool show = true;
 	while (win.isRunning()) {
+
+		win.Setecam(ecam);
+		win.Setgcam(gcam);
+
+		app->Update();
 		glClearColor(1, 0, 0, 1);
 		win.Clear();
 		glBindFramebuffer(GL_FRAMEBUFFER, FBO);
@@ -44,12 +49,15 @@ int main(){
 			r.Render(ecam);
 		}
 
-		app->Render();
+		AC::DrawFramebuffer();
 
 		win.SetSprites(sprites);
 
 		win.SwapBuffers();
 
 		sprites = win.GetSprites();
+
+		ecam = win.Getecam();
+		gcam = win.Getgcam();
 	}
 }

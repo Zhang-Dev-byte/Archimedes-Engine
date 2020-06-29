@@ -6,6 +6,6 @@ namespace AC {
 	public:
 		Application();
 		virtual void Run() = 0;
-		virtual void Render() = 0;
+		virtual void Update() = 0;
 	};
 }

@@ -12,6 +12,17 @@ namespace AC {
 		viewProjection = projection * view;
 	}
 
+	Camera::Camera()
+	{
+		rotation = 0.0f;
+		position = vec2(0, 0);
+
+		projection = glm::ortho(-1.6f, 1.6f, -0.9f, 0.9f, -1.0f, 1.0f);
+		view = mat4(1.0f);
+
+		viewProjection = projection * view;
+	}
+
 	void Camera::Update()
 	{
 		glm::mat4 transform = glm::translate(glm::mat4(1.0f), vec3(position, 0)) *

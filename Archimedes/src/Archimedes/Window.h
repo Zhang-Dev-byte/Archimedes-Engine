@@ -17,6 +17,10 @@ namespace AC {
 		bool isRunning();
 		void SetTCB(unsigned int value);
 		void SetSprites(vector<Sprite*>& value);
+		void Setecam(Camera& value);
+		void Setgcam(Camera& value);
+		Camera& Getecam();
+		Camera& Getgcam();
 		vector<Sprite*>& GetSprites();
 		GLFWwindow** GetWindow();
 		GLADloadproc& GetProc();
@@ -26,6 +30,8 @@ namespace AC {
 		unsigned int TCB;
 		Sprite* ssprite = new Sprite();
 		vector<Sprite*> sprites;
+		Camera gcam;
+		Camera ecam;
 		float spos[2] = {0,0};
 		float sscale[2] = {0,0};
 		float srot = 0;
